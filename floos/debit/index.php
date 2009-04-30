@@ -6,4 +6,5 @@
 $compte = Compte::charger($_POST['compte']);
 $compte->debiter($_POST['montant'], $_POST['categorie'], $_POST['libelle']);
 
-header("Location: ". $_SERVER['HTTP_REFERER']);
+header("Location: ". $_POST['c'], TRUE, 303 );
+
