@@ -1,4 +1,4 @@
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head><title>Nouvelles dépenses</title></head>
 <body>
 <form method="get" action="../formulaire_debit/" >
@@ -11,3 +11,4 @@
 <input type="submit" />
 </form>
 </body>
+</html>
