@@ -10,5 +10,6 @@
 </label><br />
 <input type="submit" />
 </form>
+<p>Astuce: Tout ce qui est dans la catégorie "test" sera supprimé à la fin de la journée</p>
 </body>
 </html>
