@@ -6,10 +6,10 @@
 <input type="text" name="compte" />
 </label><br />
 <label>Debut période<br />
-<input type="text" name="debut" value="2009-01-01"/>
+<input type="text" name="debut" value="<?php print date('Y') ?>-01-01"/>
 </label><br />
 <label>Fin période<br />
-<input type="text" name="fin" value="2009-12-31"/>
+<input type="text" name="fin" value="<?php print date('Y') ?>-12-31"/>
 </label><br />
 <input type="submit" />
 </form>
