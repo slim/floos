@@ -14,18 +14,29 @@ class Compte
 
 	function debiter($montant, $categorie, $libelle = '')
 	{
-		$compte = $this->id;
-		$date = date('c');
-		$query = "insert into journal_comptable (compte, date, categorie, libelle, debit) values ('$compte', '$date', '$categorie', '$libelle', $montant)";
-		self::$db->exec($query);
+		$req = self::$db->prepare("insert into journal_comptable (compte, date, categorie, libelle, debit) values (:compte, :date, :categorie, :libelle, :montant)");
+
+		$req->bindValue(':compte',$this->id);
+		$req->bindValue(':date', date('c'));
+		$req->bindValue(':categorie', $categorie);
+		$req->bindValue(':libelle', $libelle);
+		$req->bindValue(':montant', $montant);
+
+		$req->execute();
 	}
 
 	function crediter($montant, $categorie, $libelle = '')
 	{
-		$compte = $this->id;
-		$date = date('c');
 		$query = "insert into journal_comptable (compte, date, categorie, libelle, credit) values ('$compte', '$date', '$categorie', '$libelle', $montant)";
-		self::$db->exec($query);
+		$req = self::$db->prepare("insert into journal_comptable (compte, date, categorie, libelle, credit) values (:compte, :date, :categorie, :libelle, :montant)");
+
+		$req->bindValue(':compte',$this->id);
+		$req->bindValue(':date', date('c'));
+		$req->bindValue(':categorie', $categorie);
+		$req->bindValue(':libelle', $libelle);
+		$req->bindValue(':montant', $montant);
+
+		$req->execute();
 	}
 
 	function journal($debut, $fin)
